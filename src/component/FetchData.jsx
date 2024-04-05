@@ -10,6 +10,13 @@ const FetchData = ({ search, setSearch }) => {
 
     const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
+    const icons = {
+        Rain: <span>&#127783;</span>,
+        Snow: <span>&#10052;</span>,
+        Clouds: <span>&#9925;</span>,
+        Clear: <span>&#127780;</span>,
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -48,15 +55,15 @@ const FetchData = ({ search, setSearch }) => {
                     <div className='flex'>
                         <Card data={city.name} title={`${city.name} ${city.country}`} />
                         <Card data={list[0].main.temp_min} title="Lower Temp" />
-                        <Card />
-                        <Card />
+                        <Card data={icons[list[0].weather[0].main]} title="Weather"  />
+                        <Card data={list[0].weather[0].description} title="Description" />
                     </div>
                     <div className='flex flex-col'>
                         <div>
                             <div className='grid grid-cols-5 pb-2 font-mono text-xl'>
                                 <p>Date</p>
                                 <p>Time</p>
-                                <p>Temperature</p>
+                                <p>Temp</p>
                                 <p>Weather</p>
                                 <p>Description</p>
                             </div>
@@ -65,7 +72,7 @@ const FetchData = ({ search, setSearch }) => {
                                     <p>{forecast.dt_txt.split(" ")[0]}</p>
                                     <p>{forecast.dt_txt.split(" ")[1]}</p>
                                     <p>{forecast.main.temp}</p>
-                                    <p>{forecast.weather[0].main}</p>
+                                    <p>{icons[forecast.weather[0].main]}</p>
                                     <p>{forecast.weather[0].description}</p>
                                 </div>
                             ))}
