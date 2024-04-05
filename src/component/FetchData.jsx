@@ -3,9 +3,9 @@ import axios from 'axios';
 import Card from './Card';
 import icons from './Icons';
 
-const FetchData = ({ search, setSearch }) => {
-    const [list, setList] = useState(null);
-    const [city, setCity] = useState(null);
+const FetchData = ({ search, list, setList, city, setCity }) => {
+    // const [list, setList] = useState(null);
+    // const [city, setCity] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -41,7 +41,7 @@ const FetchData = ({ search, setSearch }) => {
     }, [search, API_KEY]);
 
     return (
-        <div className='flex justify-center text-gray-100 bg-violet-100/20 pl-10 pr-10 pt-12 ml-4 mr-4'>
+        <div className='flex justify-center text-gray-100 bg-violet-100/20 pl-10 pr-10 pt-12 ml-4 mr-4 pb-20'>
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             {list && (
@@ -52,7 +52,7 @@ const FetchData = ({ search, setSearch }) => {
                         <Card data={icons[list[0].weather[0].main]} title="Weather"  />
                         <Card data={list[0].weather[0].description} title="Description" />
                     </div>
-                    <div className='flex flex-col'>
+                    <div className='flex flex-col text-center'>
                         <div>
                             <div className='grid grid-cols-5 pb-2 font-mono text-xl'>
                                 <p>Date</p>
@@ -72,7 +72,7 @@ const FetchData = ({ search, setSearch }) => {
                             ))}
                         </div>
                         <div>
-                            <p>Graph</p>
+                            
                         </div>
                     </div>
                 </div>
