@@ -1,6 +1,7 @@
 import react, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from './Card';
+import icons from './Icons';
 
 const FetchData = ({ search, setSearch }) => {
     const [list, setList] = useState(null);
@@ -9,13 +10,6 @@ const FetchData = ({ search, setSearch }) => {
     const [error, setError] = useState(null);
 
     const API_KEY = import.meta.env.VITE_APP_API_KEY;
-
-    const icons = {
-        Rain: <span>&#127783;</span>,
-        Snow: <span>&#10052;</span>,
-        Clouds: <span>&#9925;</span>,
-        Clear: <span>&#127780;</span>,
-    }
 
     useEffect(() => {
         const fetchData = async () => {

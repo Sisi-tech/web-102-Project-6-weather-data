@@ -2,13 +2,19 @@ import { Link } from 'react-router-dom';
 
 
 const Header = ({ search, setSearch }) => {
+    const handleInputChange = (e) => {
+        let text = e.target.value;
+        text = text.charAt(0).toUpperCase() + text.slice(1);
+        setSearch(text);
+    };
+
     return (
-        <div className='flex flex-col gap-6 min-h-screen bg-violet-100/20 pl-10 pr-10 pt-12 ml-4 mr-4 text-gray-100'>
+        <div className='flex flex-col gap-8 min-h-screen font-mono bg-violet-100/20 pl-10 pr-10 pt-12 ml-4 mr-4 text-gray-100'>
             <div className="flex gap-2 text-2xl">
                 <span className="text-4xl">&#127780;</span>
-                <h2 className='font-mono'>Check Weather</h2>
+                <h2>Check Weather</h2>
             </div>
-            <nav className='flex flex-col gap-3'>
+            <nav className='flex flex-col gap-6'>
                 <Link to='/'>
                     <div className='flex items-center text-xl gap-3'>
                         <span className='text-3xl'>&#127969;</span>
@@ -22,7 +28,7 @@ const Header = ({ search, setSearch }) => {
                             type="text" 
                                 placeholder='Search...' 
                                 value={search} 
-                                onChange={(e) => setSearch(e.target.value)} 
+                                onChange={handleInputChange} 
                                 className="bg-transparent rounded-md pl-2 p-1" 
                             />
                     </div>
