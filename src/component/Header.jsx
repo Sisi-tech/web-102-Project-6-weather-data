@@ -9,8 +9,8 @@ const Header = ({ search, setSearch }) => {
     };
 
     return (
-        <div className='flex flex-col gap-8 min-h-screen font-mono bg-violet-100/20 pl-10 pr-10 pt-12 ml-4 mr-4 text-gray-100'>
-            <div className="flex gap-2 text-2xl">
+        <div className='flex flex-col gap-8 min-h-screen font-mono bg-violet-100/20 md:pl-10 pl-2 md:pr-2 pr-0  pt-12 ml-4 md:mr-4 mr-0 text-gray-100'>
+            <div className="flex gap-2 md:text-2xl text-xl">
                 <span className="text-4xl">&#127780;</span>
                 <h2>Check Weather</h2>
             </div>
